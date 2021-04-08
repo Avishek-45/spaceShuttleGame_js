@@ -1,6 +1,7 @@
 var ship = document.getElementById("ship");
 var screen = document.getElementById("screen");
-var count = 0;
+var countScore = 0;
+var countLife = 0;
 
 //Main event
 window.addEventListener("keydown", (e) => {
@@ -116,7 +117,7 @@ function destroyAsteriod(bullet) {
         bulletPosition.top <= asteriodPosition.top &&
         bulletPosition.bottom <= asteriodPosition.bottom
       ) {
-        count = count + 1;
+        countScore = countScore + 1;
         rock.classList.add("explosion");
         rock.style.left = asteriodPosition.left;
         rock.style.bottom = asteriodPosition.bottom;
@@ -126,8 +127,8 @@ function destroyAsteriod(bullet) {
         setTimeout(() => {
           rock.remove();
         }, 96); //removing asteriods when bullet hits it
-        document.getElementById("score").children[1].innerHTML = count;
-        var getTotalScore=count;
+        document.getElementById("score").children[1].innerHTML = countScore;
+        
       }
     }
   }
@@ -149,11 +150,13 @@ var shipCollision = setInterval(() => {
         shipPosition.top >= asteriodPosition.top &&
         shipPosition.bottom <= asteriodPosition.bottom
       ) {
-        count = count + 1;
+        countLife = countLife + 1;
         document.getElementById("lifeLine").innerHTML =
           parseInt(document.getElementById("lifeLine").innerHTML) - 1;
         // console.log(count)
-
+        if (countLife == 3) {
+          gameOver();
+        }
         var audio = new Audio("assets/sounds/sound1.mp3");
         audio.play();
         rock.classList.add("explosion");
@@ -167,25 +170,23 @@ var shipCollision = setInterval(() => {
         setTimeout(() => {
           ship.classList.remove("blink");
         }, 2000);
-        if (count == 3) {
-          gameOver();
-        }
+        
       }
     }
   }
 });
 
 function gameOver() {
+  var audio = new Audio("assets/sounds/gameoverSound.wav");
+  audio.play();
   clearInterval(moverocks);
   clearInterval(multipleAsteriod);
   clearInterval(shipCollision);
   const gameOver = document.querySelector(".gameover");
   gameOver.classList.remove("hide");
-  screen.classList.add("hide");
-  document.querySelector(".score").parentElement().remove();
-  // document.getElementById("lifeLine").innerHTML = 0;
-  // document.getElementById("score").children[1].innerHTML = 0;
-  document.getElementById("gameoverScore").children[0].innerHTML = getTotalScore;
+  screen.remove();
+  document.querySelector(".result").remove();
+  document.getElementById("gameoverScore").children[0].innerHTML = countScore ;
 }
 
 function restart() {

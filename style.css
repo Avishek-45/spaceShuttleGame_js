@@ -70,18 +70,63 @@ span{
 #score{
     height:50px;
     width:200px;
-    border: 1px black solid;
 }
 #life{
     height:50px;
     width:200px;
-    border: 1px black solid;
 }
 
 .result{
     display:flex;
     justify-content: center;
 }
+
+.star{
+    position: absolute;
+    top:0px;
+    background-color: white;
+    border-radius: 50%;
+    animation-name:starAnimate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.starSmall{
+    left:200px;
+    width:3px;
+    height:3px;
+    background-color: gray;
+    animation-duration: 5s;
+}
+.starMedium{
+    left:100px;
+    width:4px;
+    height:4px;
+    animation-duration: 7s;
+}
+.starMediumL{
+    left:300px;
+    width:4px;
+    height:4px;
+    animation-duration: 9s;
+}
+.starBig{
+    left:450px;
+    width:5px;
+    height:5px;
+    animation-duration: 4s;
+}
+
+@keyframes starAnimate{
+    from {
+        transform: translateY(-30px);
+    }
+    to{
+        transform: translateY(500px);
+    }
+}
+
+
 
 
 .explosion {
