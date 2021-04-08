@@ -1,0 +1,120 @@
+.hide{
+    display: none;
+}
+
+span{
+    font-size: 40px;
+}
+
+#screen{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin:40px auto;
+    border: 2px solid #fff;
+    background: url("assets/images/space.jpg");
+    overflow: hidden;
+}
+
+.gameover{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin:40px auto;
+    border: 2px solid #fff;
+    background: url("assets/images/space.jpg");
+    text-align: center;
+    color: #fff;
+}
+
+#ship{
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    width: 40px;
+    height: 40px;
+    background: url("assets/images/rocket.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+.gameover button{
+    padding: 15px;
+    border-radius: 10px ;
+    border:2px white solid ;
+    font-size: 15px;
+
+}
+
+.bullet{
+    position: absolute;
+    /* bottom: 40px; */
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: url("assets/images/bullet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.asteriods{
+    position: absolute;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    background: url("assets/images/asteriod.png");
+    background-size: contain;
+}
+
+#score{
+    height:50px;
+    width:200px;
+    border: 1px black solid;
+}
+#life{
+    height:50px;
+    width:200px;
+    border: 1px black solid;
+}
+
+.result{
+    display:flex;
+    justify-content: center;
+}
+
+
+.explosion {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	animation-name: explosion;
+	animation-duration: 0.1s;
+	background-repeat: no-repeat;
+	z-index: 20;
+}
+
+@keyframes explosion {
+	0%   {background-image: url("../assets/explosionImages/explosion00_s.png");}
+	20%   {background-image: url("../assets/explosionImages/explosion01_s.png"); }
+	40%   {background-image: url("../assets/explosionImages/explosion02_s.png");}
+	60%   {background-image: url("../assets/explosionImages/explosion03_s.png");opacity: 0.9;}
+	80%   {background-image: url("../assets/explosionImages/explosion04_s.png");opacity: 0.8;}
+	100%   {background-image: url("../assets/explosionImages/explosion05_s.png");opacity: 0.5;}
+}
+
+/* fade in effects */
+
+@keyframes hidden {
+    0%{opacity: 0;}
+    20%{opacity: 1;}
+    40%{opacity: 0;}
+    60%{opacity: 1;}
+    80%{opacity: 0;}
+    1000%{opacity: 1;}
+
+  }
+
+  .blink {
+    animation:hidden 2s linear ;
+  }
