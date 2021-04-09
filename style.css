@@ -31,6 +31,10 @@ span{
     color: #fff;
 }
 
+.gameover__board{
+    margin: 30% 0 20% 0;
+}
+
 #ship{
     position: absolute;
     left: 50%;

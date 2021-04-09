@@ -21,11 +21,11 @@
   <body>
     <div class="result">
       <div id="score">
-        <span>Score:</span>
+        <span>Score</span><br />
         <span>0</span>
       </div>
       <div id="life">
-        <span>Lifeline:</span>
+        <span>Lifeline</span><br />
         <span id="lifeLine">3</span>
       </div>
     </div>
@@ -39,13 +39,13 @@
         <div id="ship"></div>
       </div>
       <div class="gameover hide">
-        <h1>Game Over!!</h1>
-        <h2 id="gameoverScore">Your Score was:&nbsp;<span></span></h2>
-        <button onclick="restart()">Play Again</button>
-        <h3>Press 'Space' to shoot</h3>
+        <div class="gameover__board">
+          <h1>Game Over!!</h1>
+          <h2 id="gameoverScore">Your Score was:<br><span></span></h2>
+          <button onclick="restart()">Play Again</button>
+          <h3>Press 'Space' to shoot</h3>
+        </div>
       </div>
     </div>
-
-    <!-- <div class="explosion"></div> -->
   </body>
 </html>

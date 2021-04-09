@@ -132,7 +132,7 @@ function destroyAsteriod(bullet) {
         setTimeout(() => {
           rock.remove();
         }, 96); //removing asteriods when bullet hits it
-        document.getElementById("score").children[1].innerHTML = countScore;
+        document.getElementById("score").children[2].innerHTML = countScore;
       }
     }
   }
@@ -189,7 +189,7 @@ function gameOver() {
   gameOver.classList.remove("hide");
   screen.remove();
   document.querySelector(".result").remove();
-  document.getElementById("gameoverScore").children[0].innerHTML = countScore;
+  document.getElementById("gameoverScore").children[1].innerHTML = countScore;
 }
 
 function restart() {
