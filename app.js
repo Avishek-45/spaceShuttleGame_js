@@ -116,10 +116,10 @@ function destroyAsteriod(bullet) {
       // console.log(bulletPosition.x)
       //checks if bullet and asteriod are in same position or not
       if (
-        bulletPosition.left >= asteriodPosition.left &&
-        bulletPosition.right <= asteriodPosition.right &&
-        bulletPosition.top <= asteriodPosition.top &&
-        bulletPosition.bottom <= asteriodPosition.bottom
+          bulletPosition.left<asteriodPosition.right &&
+          bulletPosition.right>asteriodPosition.left &&
+          bulletPosition.top<asteriodPosition.top &&
+          bulletPosition.bottom<asteriodPosition.bottom
         // bulletPosition.x
       ) {
         countScore = countScore + 1;
@@ -150,10 +150,10 @@ var shipCollision = setInterval(() => {
       const shipPosition = ship.getBoundingClientRect();
 
       if (
-        shipPosition.left >= asteriodPosition.left &&
-        shipPosition.right <= asteriodPosition.right &&
-        shipPosition.top >= asteriodPosition.top &&
-        shipPosition.bottom <= asteriodPosition.bottom
+        shipPosition.x < asteriodPosition.x + asteriodPosition.width&&
+        shipPosition.x+shipPosition.width > asteriodPosition.x &&
+        shipPosition.y < asteriodPosition.y +asteriodPosition.height &&
+        shipPosition.height+shipPosition.y > asteriodPosition.y
       ) {
         countLife = countLife + 1;
         document.getElementById("lifeLine").innerHTML =
