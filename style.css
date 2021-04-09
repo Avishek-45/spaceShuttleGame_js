@@ -1,9 +1,13 @@
+body{
+    font-family: 'Press Start 2P', cursive;
+}
+
 .hide{
     display: none;
 }
 
 span{
-    font-size: 40px;
+    font-size: 30px;
 }
 
 #screen{
@@ -119,7 +123,7 @@ span{
 
 @keyframes starAnimate{
     from {
-        transform: translateY(-30px);
+        transform: translateY(100px);
     }
     to{
         transform: translateY(500px);

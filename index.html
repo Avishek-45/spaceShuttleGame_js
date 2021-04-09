@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
     <script
@@ -15,32 +20,31 @@
   </head>
   <body>
     <div class="result">
-        <div id="score">
-          <span>Score:</span>
-          <span>0</span>
-        </div>
-        <div id="life">
-          <span>Lifeline:</span>
-          <span id="lifeLine">3</span>
-        </div>
-      </div> 
+      <div id="score">
+        <span>Score:</span>
+        <span>0</span>
+      </div>
+      <div id="life">
+        <span>Lifeline:</span>
+        <span id="lifeLine">3</span>
+      </div>
+    </div>
     <div class="userScreen">
       <div id="screen">
-      <div class="star starSmall"></div>
-      <div class="star starMedium"></div>
-      <div class="star starMediumL"></div>
-      <div class="star starBig"></div>
+        <div class="star starSmall"></div>
+        <div class="star starMedium"></div>
+        <div class="star starMediumL"></div>
+        <div class="star starBig"></div>
         <div class="asteriods"></div>
         <div id="ship"></div>
       </div>
       <div class="gameover hide">
-          <h1>Game Over!!</h1>
-          <H2 id="gameoverScore">Your Score was:&nbsp;<span></span></H2>
-          <button onclick="restart()">Play Again</button>
-          <h3> Press 'Space' to shoot</h3>
+        <h1>Game Over!!</h1>
+        <h2 id="gameoverScore">Your Score was:&nbsp;<span></span></h2>
+        <button onclick="restart()">Play Again</button>
+        <h3>Press 'Space' to shoot</h3>
       </div>
     </div>
-    
 
     <!-- <div class="explosion"></div> -->
   </body>

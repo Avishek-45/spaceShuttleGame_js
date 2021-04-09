@@ -55,9 +55,9 @@ var moverocks = setInterval(() => {
       let rocktop = parseInt(
         window.getComputedStyle(rock).getPropertyValue("top")
       );
-        if(rocktop>=450){
-          gameOver();
-        }
+      if (rocktop >= 450) {
+        gameOver();
+      }
       rock.style.top = rocktop + 5 + "px";
     }
   }
@@ -65,6 +65,9 @@ var moverocks = setInterval(() => {
 
 function shootBullet(e) {
   if (e.keyCode == 32) {
+    var audio = new Audio("assets/sounds/laserSound.mp3");
+        audio.play();
+
     //finding the excact location of the ship
     let shipBottom = parseInt(
       window.getComputedStyle(ship).getPropertyValue("bottom")
@@ -97,7 +100,7 @@ function shootBullet(e) {
       }
 
       bullet.style.bottom = bulletBottom + 3 + "px"; //making bullet move after every 10 millisecod.
-      destroyAsteriod(bullet, shipBottom, shipLeft);
+      destroyAsteriod(bullet);
     }, 10);
   }
 }
@@ -110,12 +113,14 @@ function destroyAsteriod(bullet) {
     if (rock != undefined) {
       const asteriodPosition = rock.getBoundingClientRect(); //getting the postion of asteriod in every movement
       const bulletPosition = bullet.getBoundingClientRect(); //getting the postion of bullet in every movement
+      // console.log(bulletPosition.x)
       //checks if bullet and asteriod are in same position or not
       if (
         bulletPosition.left >= asteriodPosition.left &&
         bulletPosition.right <= asteriodPosition.right &&
         bulletPosition.top <= asteriodPosition.top &&
         bulletPosition.bottom <= asteriodPosition.bottom
+        // bulletPosition.x
       ) {
         countScore = countScore + 1;
         rock.classList.add("explosion");
@@ -128,11 +133,12 @@ function destroyAsteriod(bullet) {
           rock.remove();
         }, 96); //removing asteriods when bullet hits it
         document.getElementById("score").children[1].innerHTML = countScore;
-        
       }
     }
   }
 }
+
+//check if rocket and asteriod collides or not
 
 var shipCollision = setInterval(() => {
   const asteriod = document.getElementsByClassName("asteriods");
@@ -143,7 +149,6 @@ var shipCollision = setInterval(() => {
       const asteriodPosition = rock.getBoundingClientRect(); //getting the postion of asteriod in every movement
       const shipPosition = ship.getBoundingClientRect();
 
-      //check if rocket and asteriod collides or not
       if (
         shipPosition.left >= asteriodPosition.left &&
         shipPosition.right <= asteriodPosition.right &&
@@ -153,7 +158,6 @@ var shipCollision = setInterval(() => {
         countLife = countLife + 1;
         document.getElementById("lifeLine").innerHTML =
           parseInt(document.getElementById("lifeLine").innerHTML) - 1;
-        // console.log(count)
         if (countLife == 3) {
           gameOver();
         }
@@ -163,14 +167,13 @@ var shipCollision = setInterval(() => {
         setTimeout(() => {
           rock.remove();
         }, 96); //removing asteriods when bullet hits it
-        
+
         ship.style.left = "50%";
         ship.style.bottom = "0px";
         ship.classList.add("blink");
         setTimeout(() => {
           ship.classList.remove("blink");
         }, 2000);
-        
       }
     }
   }
@@ -186,7 +189,7 @@ function gameOver() {
   gameOver.classList.remove("hide");
   screen.remove();
   document.querySelector(".result").remove();
-  document.getElementById("gameoverScore").children[0].innerHTML = countScore ;
+  document.getElementById("gameoverScore").children[0].innerHTML = countScore;
 }
 
 function restart() {
