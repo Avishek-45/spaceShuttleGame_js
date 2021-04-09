@@ -189,7 +189,7 @@ function gameOver() {
   gameOver.classList.remove("hide");
   screen.remove();
   document.querySelector(".result").remove();
-  document.getElementById("gameoverScore").children[1].innerHTML = countScore;
+  document.getElementById("gameoverScore").children[0].innerHTML = countScore;
 }
 
 function restart() {
